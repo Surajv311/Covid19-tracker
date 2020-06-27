@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { NativeSelect, FormControl } from '@material-ui/core';
 
-const CountryPicker = () => {
+import { fetchCountries } from '../../api';
 
-return(
+import styles from './CountryPicker.module.css';
 
-    <h1>CountryPicker</h1>
-)
+const Countries = ({ handleCountryChange }) => {
+  const [countries, setCountries] = useState([]);
 
-}
+  useEffect(() => {
+    const fetchAPI = async () => {
+      setCountries(await fetchCountries());
+    };
 
-export default CountryPicker;
+    fetchAPI();
+  }, []);
+
+  return (
+    <FormControl className={styles.formControl}>
+      <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
+        <option value="">Global</option>
+        {countries.map((country, i) => <option key={i} value={country}>{country}</option>)}
+      </NativeSelect>
+    </FormControl>
+  );
+};
+
+export default Countries;
