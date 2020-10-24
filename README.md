@@ -22,6 +22,3 @@ To launch the test runner use:<br>
 ![img1](https://github.com/Surajv311/Covid19-tracker/blob/master/res/1.jpg)
 ![img2](https://github.com/Surajv311/Covid19-tracker/blob/master/res/2.jpg)
 
-### References Used
-* https://bit.ly/2BGOAxG
-* https://bit.ly/3eA5IUp
